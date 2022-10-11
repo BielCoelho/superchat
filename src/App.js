@@ -62,7 +62,10 @@ function App() {
 
     const sendMessage = async (e) => {
       e.preventDefault();
-
+      console.log(e);
+      if (formValue === "") {
+        return;
+      } else {
       const { uid, photoURL } = auth.currentUser;
 
       await messagesRef.add({
@@ -75,6 +78,7 @@ function App() {
       setFormValue("");
       
       dummy.current.scrollIntoView({behavior: 'smooth'});
+    }
     };
 
     return (
